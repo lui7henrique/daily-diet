@@ -31,13 +31,39 @@ export async function metricsRoutes(app: FastifyInstance) {
         .where({ user_id: id, is_on_diet: false })
         .first()
 
-      // TODO: Implementar a lógica para encontrar a melhor sequência de refeições dentro da dieta
+      const userDietMeals = await knex('meals')
+        .select('id', 'date')
+        .where({ user_id: id, is_on_diet: true })
+        .orderBy('date', 'asc')
+
+      let bestDietSequence = []
+
+      if (userDietMeals.length > 0) {
+        let currentSequence = [userDietMeals[0]]
+        bestDietSequence = [userDietMeals[0]]
+
+        for (let i = 1; i < userDietMeals.length; i++) {
+          const prevDate = new Date(userDietMeals[i - 1].date).getTime()
+          const currentDate = new Date(userDietMeals[i].date).getTime()
+          const oneDay = 24 * 60 * 60 * 1000
+
+          if (currentDate - prevDate <= oneDay) {
+            currentSequence.push(userDietMeals[i])
+          } else {
+            currentSequence = [userDietMeals[i]]
+          }
+
+          if (currentSequence.length > bestDietSequence.length) {
+            bestDietSequence = currentSequence
+          }
+        }
+      }
 
       res.status(200).send({
         total_meals: totalMeals?.totalMeals,
         diet_meals: dietMeals?.dietMeals,
         non_diet_meals: nonDietMeals?.nonDietMeals,
-        best_diet_sequence: 'Melhor sequência de refeições dentro da dieta',
+        best_diet_sequence: bestDietSequence.length,
       })
     },
   )
