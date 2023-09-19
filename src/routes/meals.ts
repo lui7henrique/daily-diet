@@ -80,8 +80,6 @@ export async function mealsRoutes(app: FastifyInstance) {
       const { id } = editMealParams.parse(req.params)
       const { name, description, date, isOnDiet } = validationResult.data
 
-      console.log({ isOnDiet })
-
       const meal = await knex('meals')
         .select('*')
         .where({ id })
@@ -105,11 +103,26 @@ export async function mealsRoutes(app: FastifyInstance) {
       preHandler: [checkSessionIdSession],
     },
     async (req: FastifyRequest, res: FastifyReply) => {
+      const { sessionId } = req.cookies
+
       const deleteMealParams = z.object({
         id: z.string(),
       })
 
       const { id } = deleteMealParams.parse(req.params)
+
+      const { id: userId } = await knex('users')
+        .select('id')
+        .where({ session_id: sessionId })
+        .first()
+
+      const existingMeal = await knex('meals').select('*').where({ id }).first()
+
+      if (!existingMeal || existingMeal.user_id !== userId) {
+        return res.status(403).send({
+          message: 'Você não tem permissão para excluir esta refeição.',
+        })
+      }
 
       await knex('meals').where({ id }).del()
 

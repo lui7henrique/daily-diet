@@ -35,10 +35,14 @@ export async function usersRoutes(app: FastifyInstance) {
     if (!sessionId) {
       sessionId = randomUUID()
 
-      response.cookie('sessionId', sessionId, {
-        path: '/meals',
-        maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
-      })
+      const privatePaths = ['/meals', '/metrics']
+
+      privatePaths.forEach((path) =>
+        response.cookie('sessionId', sessionId!, {
+          path,
+          maxAge: 1000 * 60 * 60 * 24 * 7, // 7 days
+        }),
+      )
     }
 
     await knex('users').insert({
