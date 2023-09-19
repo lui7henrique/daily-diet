@@ -1,0 +1,35 @@
+{
+  "name": "daily-diet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint src --ext .ts --fix",
+    "knex": "node --no-warnings --loader tsx ./node_modules/knex/bin/cli.js",
+    "dev": "tsx watch src/server.ts",
+    "test": "vitest",
+    "build": "tsup src --out-dir build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rocketseat/eslint-config": "^2.1.0",
+    "@types/node": "^20.6.2",
+    "@types/supertest": "^2.0.12",
+    "eslint": "^8.49.0",
+    "sqlite3": "^5.1.6",
+    "supertest": "^6.3.3",
+    "ts-node": "^10.9.1",
+    "tsx": "^3.12.10",
+    "vitest": "^0.34.4"
+  },
+  "dependencies": {
+    "@fastify/cookie": "^9.0.4",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.23.2",
+    "knex": "^2.5.1",
+    "pg": "^8.11.3",
+    "zod": "^3.22.2"
+  }
+}
