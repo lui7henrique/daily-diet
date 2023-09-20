@@ -1,8 +1,11 @@
-# 🍏 Daily Diet API 
 
-The Daily Diet API is an application developed as part of Challenge 02 of the "Creating RESTful APIs with Node.js" module.
 
-## 📋 Rules 
+
+# 🍏 **Daily Diet API**
+
+The Daily Diet API is an application developed as part of **Challenge 02** of the **["Creating RESTful APIs with Node.js"](https://rocketseat.com.br)** module.
+
+## 📋 **Rules**
 
 - [x] It must be possible to create a user 
 - [x] It must be possible to identify the user in requests 
@@ -23,7 +26,7 @@ The Daily Diet API is an application developed as part of Challenge 02 of the "C
   - Best sequence of meals within the diet 
 - [x] The user can only view, edit, and delete the meals that he created
 
-## 🚀 How to run:
+## 🚀 **How to run:**
 
 1. Clone the repository:
 
@@ -64,14 +67,14 @@ The Daily Diet API is an application developed as part of Challenge 02 of the "C
    $ npm start
    ```
 
-Now, the Daily Diet API is up and running, ready for use.
+Now, the **Daily Diet API** is up and running, ready for use.
 
-##  👨‍💻 Author
+##  👨‍💻 **Author**
 
 Luiz Henrique - Software Developer
 
 [Linkedin](https://www.linkedin.com/in/luiz-henrique7/) | [E-mail](mailto:7henrique18@gmail.com)
 
----
+> This project was developed as part of **Challenge 02** of the **["Creating RESTful APIs with Node.js"](https://rocketseat.com.br)** course at **[Rocketseat](https://rocketseat.com.br)**. 🚀📚
 
-This project was developed as part of Challenge 02 of the "Creating RESTful APIs with Node.js" course at Rocketseat. 🚀📚
+
