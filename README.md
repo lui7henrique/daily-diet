@@ -1,86 +1,77 @@
 # 🍏 Daily Diet API 
 
-A Daily Diet API é uma aplicação desenvolvida como parte do Desafio 02 do módulo "Criando APIs RESTful com Node.js".
+The Daily Diet API is an application developed as part of Challenge 02 of the "Creating RESTful APIs with Node.js" module.
 
-## 🚀 Sobre 
+## 📋 Rules 
 
-Neste desafio, desenvolvemos uma API para controle de dieta diária, a Daily Diet API.
+- [x] It must be possible to create a user 
+- [x] It must be possible to identify the user in requests 
+- [x] It must be possible to register a meal, with the following information:
+  - Meals must be related to a user 
+  - Name 
+  - Description 
+  - Date and Time 
+  - Is it within the diet or not 
+- [x] It must be possible to edit a meal, being able to change all the above data 
+- [x] It must be possible to delete a meal 
+- [x] It must be possible to list all meals of a user 
+- [x] It must be possible to view a single meal 
+- [x] It must be possible to retrieve a user's metrics 
+  - Total number of registered meals 
+  - Total number of meals within the diet 
+  - Total number of meals outside the diet
+  - Best sequence of meals within the diet 
+- [x] The user can only view, edit, and delete the meals that he created
 
-## 📋 Regras da aplicação 
+## 🚀 How to run:
 
-- Deve ser possível criar um usuário 
-- Deve ser possível identificar o usuário entre as requisições 
-- Deve ser possível registrar uma refeição feita, com as seguintes informações:
-  - As refeições devem ser relacionadas a um usuário 
-  - Nome 
-  - Descrição 
-  - Data e Hora 
-  - Está dentro ou não da dieta 
-- Deve ser possível editar uma refeição, podendo alterar todos os dados acima 
-- Deve ser possível apagar uma refeição 
-- Deve ser possível listar todas as refeições de um usuário 
-- Deve ser possível visualizar uma única refeição 
-- Deve ser possível recuperar as métricas de um usuário 
-  - Quantidade total de refeições registradas 
-  - Quantidade total de refeições dentro da dieta 
-  - Quantidade total de refeições fora da dieta
-  - Melhor sequência de refeições dentro da dieta 
-- O usuário só pode visualizar, editar e apagar as refeições que ele criou
-
-## 🚀 Como executar:
-
-1. Clone o repositório:
+1. Clone the repository:
 
    ```shell
-   $ git clone https://github.com/seu-usuario/daily-diet-api.git
+   $ git clone https://github.com/your-username/daily-diet-api.git
    ```
 
-2. Acesse a pasta do projeto:
+2. Access the project folder:
 
    ```shell
    $ cd daily-diet-api
    ```
 
-3. Instale as dependências:
+3. Install the dependencies:
 
    ```shell
    $ npm install
    ```
 
-4. Configure as variáveis de ambiente em um arquivo `.env`:
+4. Configure the environment variables in a `.env` file:
 
    ```shell
-   # Exemplo de variáveis de ambiente
-   DATABASE_URL='sua-url-de-banco-de-dados'
-   SECRET_KEY='sua-chave-secreta'
+   # Example environment variables
+   NODE_ENV=development
+   DATABASE_CLIENT=sqlite
+   DATABASE_URL=./db/dev.sqlite3
    ```
 
-5. Execute as migrações do banco de dados:
+5. Run the database migrations:
 
    ```shell
    $ npx knex migrate:latest
    ```
 
-6. Execute as sementes do banco de dados:
-
-   ```shell
-   $ npx knex seed:run
-   ```
-
-7. Inicie o servidor:
+6. Start the server:
 
    ```shell
    $ npm start
    ```
 
-Agora, a Daily Diet API está em execução e pronta para uso.
+Now, the Daily Diet API is up and running, ready for use.
 
-##  👨‍💻 Autor
+##  👨‍💻 Author
 
-Seu Nome - Desenvolvedor de Software
+Luiz Henrique - Software Developer
 
-[Linkedin](https://www.linkedin.com/in/seu-nome/) | [E-mail](mailto:seu-email@example.com)
+[Linkedin](https://www.linkedin.com/in/luiz-henrique7/) | [E-mail](mailto:7henrique18@gmail.com)
 
 ---
 
-Este projeto foi desenvolvido como parte do Desafio 02 do curso "Criando APIs RESTful com Node.js" da Rocketseat. 🚀📚
+This project was developed as part of Challenge 02 of the "Creating RESTful APIs with Node.js" course at Rocketseat. 🚀📚
